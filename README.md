@@ -7,12 +7,15 @@
 
 ### Схема проекта
 
-
+- PnL_calculator - основная директория проекта;
+  - application - директория с обработчиками и дополнительными функциями;
+  - database - директория со схемой базы данных и функциями ORM SQLAlchemy;
+- migrations - директория, содержащая ресурсы инструмента управления миграциями alembic;
 
 ### Команды для запуска и настройки
 
-docker-compose up -d --build - 
+- <code> docker-compose up -d --build </code> - сборка и запуск проекта 
 
-docker logs --tail 50 --follow --timestamps dev_backend - 
+- <code> docker logs --tail 50 --follow --timestamps dev_backend </code> -  просмотр логов контейнера с основным приложением
 
-docker logs --tail 50 --follow --timestamps dev_db - 
+- <code> docker logs --tail 50 --follow --timestamps dev_db </code> - просмотр логов контейнера с базой данных 

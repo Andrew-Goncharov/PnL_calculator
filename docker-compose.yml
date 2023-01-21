@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: "postgres"
+    container_name: "dev_db"
+    ports:
+      - 5432:5432
+    env_file:
+      - dev.env
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: always
+
+  web:
+    build: .
+    container_name: "dev_backend"
+    ports:
+      - 8000:8000
+    command: sh -c "cd migrations && alembic upgrade head && cd ../PnL_calculator && gunicorn -w 5 -b 0.0.0.0:8000 'application.views:app'"
+      # - bash -c "cd migrations && alembic upgrade head && cd ../products_aggregator
+      # && uvicorn application.views:app --host 0.0.0.0 --port 80 --workers 20"
+    env_file:
+      - dev.env
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  db:

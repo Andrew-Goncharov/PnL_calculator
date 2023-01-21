@@ -7,6 +7,8 @@
 
 ### Схема проекта
 
+![alt text](https://github.com/Andrew-Goncharov/PnL_calculator/blob/main/PnL_calculator/web/static/assets/img/img.png)
+
 - PnL_calculator - основная директория проекта;
   - application - директория с обработчиками и дополнительными функциями;
   - database - директория со схемой базы данных и функциями ORM SQLAlchemy;
